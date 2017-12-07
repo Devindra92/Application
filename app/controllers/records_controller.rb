@@ -5,6 +5,11 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
     @records = Record.all
+    if params[:search]
+      @records = Record.search(params[:search]).order("created_at ASC")
+    else
+      @records = Record.all.order("created_at ASC")
+    end
   end
 
   # GET /records/1

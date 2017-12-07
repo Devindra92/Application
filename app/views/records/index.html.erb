@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Records</h1>
+<% if @records.blank? %>
+  <h4>There are no records containing the term <%= params[:search] %></h4>
+<% end %>
+
+<h1><%= link_to records_path, "Records" %></h1>
 
 <div class="table-responsive">
 <table class="table table-hover">
